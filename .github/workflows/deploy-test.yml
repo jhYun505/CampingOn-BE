@@ -31,11 +31,15 @@ jobs:
         - name: Debuging - Check for docker-compose.yml
           run: ls -al
 
-        # Docker build 및 push
-        - name: Build and push Docker image
+        - name: Build Docker image
           run: |
             docker compose build
-            docker compose push
+
+        # Docker build 및 push
+        - name: Tag and push Docker image
+          run: |
+            docker tag my-app:latest ${{ secrets.DOCKER_USERNAME }}/camping-on:latest
+            docker push ${{ secrets.DOCKER_USERNAME }}/camping-on:latest
             
 
 
