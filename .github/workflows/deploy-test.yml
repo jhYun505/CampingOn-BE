@@ -21,9 +21,8 @@ jobs:
           env:
             USERNAME: ${{ secrets.DOCKER_USERNAME }}
             PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-            IMAGE_NAME: ${{ secrets.DOCKER_REPO }}
+            IMAGE_NAME: camping-on
             LATEST: "true"
-            BUILDX: "true"
 
          # EC2 서버에 배포
         - name: Deploy to EC2
