@@ -14,6 +14,7 @@ RUN ./gradlew clean build -x test
 FROM eclipse-temurin:21-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/build/libs/*.jar CampingOn.jar
+RUN mkdir -p /app/logs
 
 # 포트 설정
 EXPOSE 8080
