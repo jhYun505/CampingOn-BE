@@ -60,5 +60,10 @@ jobs:
               docker stop camping-on || true
               docker rm camping-on || true
               # 새 컨테이너 실행
-              docker run -d --env-file ${{ secrets.EC2_TARGET_PATH }}/.env --name camping-on -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/camping-on:latest
+              docker run -d \
+              --env-file ${{ secrets.EC2_TARGET_PATH }}/.env \
+              --name camping-on \
+              -p 8080:8080 \
+              -v ${{ secrets.EC2_TARGET_PATH }}/logs:/app/logs
+              ${{ secrets.DOCKER_USERNAME }}/camping-on:latest
 
