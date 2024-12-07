@@ -12,7 +12,7 @@ services:
       SPRING_PROFILES_ACTIVE: prod,s3Bucket
       TZ: Asia/Seoul
     volumes:
-      - ~/logs:app/logs # 로그 마운트
+      - /home/ubuntu/logs:app/logs # 로그 마운트
     networks:
       - app-network
 
