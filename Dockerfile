@@ -15,7 +15,10 @@ FROM eclipse-temurin:21-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/build/libs/*.jar CampingOn.jar
 
+# 환경 변수 선언
+ENV JAVA_OPTS=""
+
 # 포트 설정
 EXPOSE 8080
 
-CMD ["java", "-jar", "CampingOn.jar"]
+CMD ["sh", "-c", "java $JAVA_OPTS -jar CampingOn.jar"]
