@@ -3,10 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: jhyun505/camping-on:latest
+    image: camping-on:latest
     container_name: camping-on
-    env_file:
-      - .env # 환경 변수 파일 경로
     ports:
       - "8080:8080"
     restart: always
