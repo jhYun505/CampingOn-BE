@@ -25,10 +25,10 @@ jobs:
         - name: Build and push Docker images
           uses: docker/build-push-action@v6.10.0
           with:
-            context: ./  # Dockerfile 위치
+            context: .  # Dockerfile 위치
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKER_USERNAME }}/${{secrets.DOCKER_REPO }}:latest
+            tags: ${{ secrets.DOCKER_USERNAME }}/camping-on:latest
             
 
 
